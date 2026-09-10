@@ -24,6 +24,7 @@ def main():
     Shot.containers = (drawable,updatable,shots)
     Clock = pygame.time.Clock()
     dt: float = 0.0
+    score = 0
     player = Player(x = SCREEN_WIDTH / 2,y = SCREEN_HEIGHT / 2)
     asteroidfield = AsteroidField()
     while True:
@@ -40,6 +41,7 @@ def main():
             for object in shots:
                 if objekt.collides_with(object):
                     log_event("asteroid_shot")
+                    score += 1
                     object.kill()
                     objekt.split()
                     k = True
@@ -49,6 +51,7 @@ def main():
             if objekt.collides_with(player):
                 log_event("player_hit")
                 print("Game over!")
+                print(f"Score: {score}")
                 sys.exit()
         dt = Clock.tick(60) / 1000
         pygame.display.flip()
