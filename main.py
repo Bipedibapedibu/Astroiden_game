@@ -3,7 +3,7 @@ import sys
 from constants import *
 from logger import log_state,log_event
 from player import Player
-from asteroid import Asteroid
+from astroids import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 
